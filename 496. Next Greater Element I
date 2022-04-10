@@ -1,0 +1,37 @@
+class Solution {
+    public int great(int[] nums2,int k,int j)
+    {
+        for(int i=j+1;i<nums2.length;i++)
+        {
+            if(k<nums2[i])
+            {
+               return nums2[i];
+            }
+        }
+        return -1;
+    }
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+     ArrayList<Integer> a=new ArrayList<Integer>();
+        int n=nums1.length;
+        int m=nums2.length;
+        int c=-1;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(nums1[i]==nums2[j])
+                {
+                    c=great(nums2,nums2[j],j);
+                    a.add(c);
+                    break;
+                }
+            }
+        }
+        int[] b=new int[a.size()];
+        for(int i=0;i<a.size();i++)
+        {
+            b[i]=a.get(i);
+        }
+        return b;
+    }
+}
